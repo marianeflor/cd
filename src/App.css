@@ -1,10 +1,10 @@
 .grid {
     display: grid;
-    grid-template-columns: 50px 1040px;
+    grid-template-columns: 30px 940px;
 }
 
 .column {
-    margin-left: 50px;
+    margin-left: 30px;
     display: flex;
     justify-content: space-around;
     grid-column-start: span 2;
@@ -27,6 +27,6 @@
 }
 
 .image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
 }

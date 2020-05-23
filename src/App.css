@@ -1,6 +1,6 @@
 .grid {
     display: grid;
-    grid-template-columns: 30px 1040px;
+    grid-template-columns: 30px 1060px;
 }
 
 .column {
@@ -20,16 +20,23 @@
     justify-content: space-around;
 }
 
-.img-grid {
+.img-grid {       
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
-    justify-items: center;
-    align-items: center;
+}
+
+.img-grid picture {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 200px;
+    height: 150px; 
+    border: 2px solid gray;
     
 }
 
-.image {
+.image {    
     max-width: 200px;
-    max-height: 150px;    
+    max-height: 150px;
 }

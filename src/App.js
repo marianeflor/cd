@@ -8,11 +8,11 @@ function App() {
   const listImg = []
 
   const randomInt = (min, max) => {
-    return min + Math.floor((max - min) * Math.random());
+    return min + Math.floor((max - min) * Math.random())
   }
 
   while (listImg.length < 20){
-    const numRandom = randomInt(1,30)
+    const numRandom = randomInt(1,120)
     if(!listImg.includes(numRandom)) listImg.push(numRandom)
   }
 

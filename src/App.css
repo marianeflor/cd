@@ -26,10 +26,24 @@
     gap: 10px;
     justify-items: center;
     align-items: center;
+    border-radius: 5px;
+    border-width: 2px;
     
 }
 
 .image {
     max-width: 200px;
-    max-height: 150px;    
+    max-height: 150px;
+}
+
+.image-container {
+    box-shadow: 4px 4px #5558;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;  
+    background-color: lightgoldenrodyellow;
 }

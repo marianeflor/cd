@@ -30,13 +30,25 @@
     display: flex;
     justify-content: center;
     align-content: center;
+
     width: 200px;
     height: 150px; 
-    border: 2px solid gray;
-    
+
+    justify-items: center;
+    align-items: center;
+    border-radius: 5px;
+    border-width: 2px;
+
+    box-shadow: 4px 4px #5558;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;  
+    background-color: lightgoldenrodyellow;
 }
 
 .image {    
     max-width: 200px;
     max-height: 150px;
 }
+

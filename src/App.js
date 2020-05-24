@@ -23,13 +23,13 @@ function App() {
   const [initial, setInitial] = useState(listImg)
   const [images, setImages] = useState(initial)
   
-  let timeColor  
+  let color
   if(Math.random() > 0.5) {
-    timeColor = 'blue'
+    color = 'blue'
   } else {
-    timeColor = 'red'
+    color = 'red'
   }
-
+  const [timeColor, setTimeColor] = useState(color)
   listColors.push(timeColor)
 
   const arrayShuffle = arr => {

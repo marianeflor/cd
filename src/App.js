@@ -16,11 +16,12 @@ function App() {
   }
 
   while (listImg.length < 20){
-    const numRandom = randomInt(1,120)
+    const numRandom = randomInt(1,271)
     if(!listImg.includes(numRandom)) listImg.push(numRandom)
   }
 
-  const [images, setImages] = useState(listImg)
+  const [initial, setInitial] = useState(listImg)
+  const [images, setImages] = useState(initial)
   
   let timeColor  
   if(Math.random() > 0.5) {
@@ -53,6 +54,16 @@ function App() {
     setImages(images.map(img => img == alt ? template[position] : img))
   }
 
+  const handleDoubleClick = e => {
+    
+    e.preventDefault()
+
+    const position = e.target.attributes.property.nodeValue
+    const alt = e.target.attributes.alt.nodeValue
+
+    setImages(images.map(img => img == alt ? initial[position] : img))
+  }
+
   return (
     <main>
       <div className='grid'>
@@ -60,13 +71,13 @@ function App() {
         <Row />      
         <section className='img-grid'>
           {images.map((img, i) => (
-            <Image name={img} key={i} position={i} handleClick={handleClick}/>
+            <Image name={img} key={i} position={i} handleClick={handleClick} handleDoubleClick={handleDoubleClick}/>
             ))
           }
         </section>
       </div>
 
-      <div className='grid'>
+      <div className='grid smaller'>
         <Column />
         <Row />
         <section className='img-grid'>

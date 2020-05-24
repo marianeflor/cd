@@ -1,6 +1,7 @@
 .grid {
     display: grid;
     grid-template-columns: 30px 1060px;
+    margin-bottom: 100px;
 }
 
 .column {
@@ -36,8 +37,6 @@
 
     justify-items: center;
     align-items: center;
-    border-radius: 5px;
-    border-width: 2px;
 
     box-shadow: 4px 4px #5558;
     border-radius: 5px;
@@ -50,5 +49,12 @@
 .image {    
     max-width: 200px;
     max-height: 150px;
+}
+
+h1 {
+    font-size: 24px;
+    grid-column-start: span 2;
+    margin: 5px;
+    text-align: center;
 }
 

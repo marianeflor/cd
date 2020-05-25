@@ -1,13 +1,17 @@
+main {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 95vh;
+}
+
 .grid {
     display: grid;
     grid-template-columns: 30px 860px;
 }
 
 .smaller {
-    transform: scale(0.5); 
-    position: relative;
-    left: 600px;
-    top: -800px;
+    transform: scale(0.5);
 }
 
 .column {
@@ -55,9 +59,13 @@
 }
 
 h1 {
+    color: #bbb382;
     font-size: 24px;
     grid-column-start: span 2;
-    margin: 5px;
+    margin-top: 10px;
+    margin-left: 30px;
     text-align: center;
+    border: 2px solid black;
+    box-shadow: 4px 4px #bbb382;
 }
 

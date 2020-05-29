@@ -51,10 +51,8 @@ function App() {
     const position = e.target.attributes.property.nodeValue
     const alt = e.target.attributes.alt.nodeValue
 
-    setImages(images.map((img, i) => {
-      // if (img == alt) {
-      if (i == position) {
-        // if (alt.match(/\d*/)) {
+    setImages(images.map((img) => {
+      if (img == alt) {
         if (template[position] != img) {
           return template[position]
         } else {

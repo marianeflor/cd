@@ -68,7 +68,7 @@ h1 {
 @media screen and (max-width: 900px) {
     .grid {
         display: grid;
-        grid-template-columns: 15px 420px;
+        grid-template-columns: 15px 370px;
     }
 
     .column {
@@ -76,8 +76,8 @@ h1 {
     }
 
     .img-grid picture {    
-        width: 70px;
-        height: 70px; 
+        width: 60px;
+        height: 60px; 
     }
 
     body {
@@ -85,7 +85,7 @@ h1 {
     }
     
     main {
-        height: 360px;
+        height: 320px;
     }
 
   }

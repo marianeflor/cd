@@ -51,7 +51,7 @@ function App() {
     const position = e.target.attributes.property.nodeValue
     const alt = e.target.attributes.alt.nodeValue
 
-    setImages(images.map(img => img == alt ? template[position] : img))
+    setImages(images.map((img) => img == alt ? template[position] : img))
   }
 
   const handleDoubleClick = e => {
@@ -61,7 +61,7 @@ function App() {
     const position = e.target.attributes.property.nodeValue
     const alt = e.target.attributes.alt.nodeValue
 
-    setImages(images.map(img => img == alt ? initial[position] : img))
+    setImages(images.map((img, i) => i == position ? initial[position] : img))
   }
 
   return (
@@ -76,6 +76,7 @@ function App() {
           }
         </section>
       </div>
+
       <div className='grid smaller'>
         <Column />
         <Row />

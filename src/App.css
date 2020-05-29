@@ -11,8 +11,8 @@ main {
 }
 
 .smaller {
-    transform: scale(0.5);
-    transform-origin: 10%;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 10%;
 }
 
 .column {
@@ -54,6 +54,11 @@ main {
     border-radius: 5px;
 }
 
+.image {
+    width: 160px;
+    height: 160px;
+}
+
 h1 {
     color: #bbb382;
     font-size: 24px;
@@ -66,6 +71,11 @@ h1 {
 }
 
 @media screen and (max-width: 900px) {
+
+    main {
+        height: 320px;
+    }
+
     .grid {
         display: grid;
         grid-template-columns: 15px 370px;
@@ -80,13 +90,11 @@ h1 {
         height: 60px; 
     }
 
-    body {
-        font-size: 15px;
+
+    .image {
+        width: 60px;
+        height: 60px;
     }
     
-    main {
-        height: 320px;
-    }
-
-  }
+}
 

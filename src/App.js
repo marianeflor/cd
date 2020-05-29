@@ -44,7 +44,7 @@ function App() {
 
   const [template, setTemplate] = useState(arrayShuffle(listColors))
   
-  const handleClick = e => {
+  const toggleClick = e => {
     
     e.preventDefault()
 
@@ -64,6 +64,13 @@ function App() {
     }))
   }
 
+  const [hidden, setHidden] = useState('')
+  const [hiddenShow, setHiddenShow] = useState('Ocultar')
+  const buttonClick = (hidden, hiddenShow) => {
+    hidden == '' ? setHidden('hidden') : setHidden('')
+    hiddenShow == 'Mostrar' ? setHiddenShow('Ocultar') : setHiddenShow('Mostrar')
+  }
+
   return (
     <main>
       <div className='grid'>
@@ -71,13 +78,14 @@ function App() {
         <Row />      
         <section className='img-grid'>
           {images.map((img, i) => (
-            <Image name={img} key={i} position={i} handleClick={handleClick}/>
+            <Image name={img} key={i} position={i} toggleClick={toggleClick}/>
             ))
           }
         </section>
+        <button className="box button" type="button" onClick={() => buttonClick(hidden, hiddenShow)}>{`${hiddenShow} Gabarito`}</button>
       </div>
 
-      <div className='grid smaller'>
+      <div className={`grid smaller ${hidden}`}>
         <Column />
         <Row />
         <section className='img-grid'>
@@ -86,8 +94,8 @@ function App() {
             ))
           }
         </section>
-        <h1 style={{backgroundColor: `${timeColor}`}}>Time Inicial</h1>
-      </div>
+        <h1 className='box' style={{backgroundColor: `${timeColor}`}}>Time Inicial</h1>
+      </div>      
     </main>
   )
 }

@@ -7,6 +7,6 @@ export default props =>
         alt={props.name}
         property={props.position}
         className='image'
-        onClick={props.handleClick}
+        onClick={props.toggleClick}
     />
 </picture>

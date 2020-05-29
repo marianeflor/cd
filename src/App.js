@@ -76,7 +76,6 @@ function App() {
           }
         </section>
       </div>
-
       <div className='grid smaller'>
         <Column />
         <Row />

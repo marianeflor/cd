@@ -8,6 +8,5 @@ export default props =>
         property={props.position}
         className='image'
         onClick={props.handleClick}
-        onDoubleClick={props.handleDoubleClick}
     />
 </picture>

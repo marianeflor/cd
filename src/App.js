@@ -51,17 +51,19 @@ function App() {
     const position = e.target.attributes.property.nodeValue
     const alt = e.target.attributes.alt.nodeValue
 
-    setImages(images.map((img) => img == alt ? template[position] : img))
-  }
-
-  const handleDoubleClick = e => {
-    
-    e.preventDefault()
-
-    const position = e.target.attributes.property.nodeValue
-    const alt = e.target.attributes.alt.nodeValue
-
-    setImages(images.map((img, i) => i == position ? initial[position] : img))
+    setImages(images.map((img, i) => {
+      // if (img == alt) {
+      if (i == position) {
+        // if (alt.match(/\d*/)) {
+        if (template[position] != img) {
+          return template[position]
+        } else {
+          return initial[position]
+        }
+      } else {
+        return img
+      }
+    }))
   }
 
   return (
@@ -71,7 +73,7 @@ function App() {
         <Row />      
         <section className='img-grid'>
           {images.map((img, i) => (
-            <Image name={img} key={i} position={i} handleClick={handleClick} handleDoubleClick={handleDoubleClick}/>
+            <Image name={img} key={i} position={i} handleClick={handleClick}/>
             ))
           }
         </section>

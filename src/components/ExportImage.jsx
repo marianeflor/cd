@@ -3,7 +3,7 @@ import React, { useRef } from "react"
 import Game from "./Game"
 
 const ComponentToPrint = React.forwardRef((props, ref) => ( 
-    <div ref={ref}>
+    <div ref={ref} style={{ backgroundColor: 'whitesmoke' }}>
         <Game />
     </div>
 ))

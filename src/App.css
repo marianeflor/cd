@@ -2,6 +2,7 @@ main {
     margin: 5px;
     display: flex;
     justify-content: space-between;
+    height: 730px;
 }
 
 .grid {
@@ -50,7 +51,7 @@ main {
 
     box-shadow: 4px 4px #bbb382;
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .image {
@@ -63,15 +64,18 @@ main {
     font-size: 30px;
     grid-column-start: span 2;
     margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 35px;
     text-align: center;
     border: 2px solid black;
     box-shadow: 4px 4px #bbb382;
+    border-radius: 5px;
 }
 
 .button {
     background-color: #bebba8;
     color: black;
+    width: 300px;
+    height: 45px;
 }
 
 .button:hover {
@@ -79,10 +83,16 @@ main {
     box-shadow: 4px 4px #bebba8;
 }
 
+.screenshot {
+    position: relative;
+    top: -55px;
+    right: -560px;
+}
+
 @media screen and (max-width: 900px) {
 
     main {
-        height: 320px;
+        height: 310px;
     }
 
     .grid {
@@ -96,7 +106,10 @@ main {
 
     .img-grid picture {    
         width: 60px;
-        height: 60px; 
+        height: 60px;
+        box-shadow: 2px 2px #bbb382;
+        border: 1px solid black; 
+        border-radius: 5px;
     }
 
     .image {
@@ -107,8 +120,22 @@ main {
     .box {
         font-size: 15px;
         margin-top: 5px;
-        margin-left: 15px;
+        margin-left: 20px;
+        border: 1px solid black;
+        box-shadow: 2px 2px #bbb382;
     }
+
+    .button {
+        width: 150px;
+        height: 24px;
+    }
+
+    .screenshot {
+        position: relative;
+        top: -29px;
+        right: -215px;
+    }
+    
         
 }
 

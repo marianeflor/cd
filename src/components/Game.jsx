@@ -1,17 +1,16 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
+import { exportComponentAsPNG } from "react-component-export-image"
 
-import Image from "./Image"
-import Column from "./Column"
-import Row from "./Row"
+import Grid from "./Grid"
 import HiddenShow from "./HiddenShow"
 
 function Game() {
   const listImg = []
   const listColors = [
-    "beige","beige","beige","beige",
+    "beige", "beige", "beige", "beige",
     "black",
-    "blue","blue","blue","blue","blue","blue","blue",
-    "red","red","red","red","red","red","red"
+    "blue", "blue", "blue", "blue", "blue", "blue", "blue",
+    "red", "red", "red", "red", "red", "red", "red"
   ]
 
   const randomInt = (min, max) => {
@@ -23,7 +22,7 @@ function Game() {
     if (!listImg.includes(numRandom)) listImg.push(numRandom)
   }
 
-  const [initial, setInitial] = useState(listImg)
+  const [initial] = useState(listImg)
   const [images, setImages] = useState(initial)
 
   let color
@@ -33,7 +32,7 @@ function Game() {
     color = "red"
   }
 
-  const [timeColor, setTimeColor] = useState(color)
+  const [timeColor] = useState(color)
   listColors.push(timeColor)
 
   const arrayShuffle = (arr) => {
@@ -46,22 +45,20 @@ function Game() {
     return arr
   }
 
-  const [template, setTemplate] = useState(arrayShuffle(listColors))
+  const [template] = useState(arrayShuffle(listColors))
 
   const toggleClick = (e) => {
     e.preventDefault()
 
-    const position = e.target.attributes.property.nodeValue
-    const alt = e.target.attributes.alt.nodeValue
+    const position = Number(e.target.attributes.property.nodeValue)
+    const alt = Number(e.target.attributes.alt.nodeValue)
 
     setImages(
-      images.map((img) => {
-        if (img == alt) {
-          if (template[position] != img) {
-            return template[position]
-          } else {
-            return initial[position]
-          }
+      images.map((img, i) => {
+        if (img === alt && template[position] !== img) {
+          return template[position]
+        } else if (i === position && initial[position] !== img) {
+          return initial[position]
         } else {
           return img
         }
@@ -72,40 +69,39 @@ function Game() {
   const [hidden, setHidden] = useState("")
   const [hiddenShow, setHiddenShow] = useState("Ocultar")
   const buttonClick = (hidden, hiddenShow) => {
-    hidden == "" ? setHidden("hidden") : setHidden("")
-    hiddenShow == "Mostrar"
+    hidden === "" ? setHidden("hidden") : setHidden("")
+    hiddenShow === "Mostrar"
       ? setHiddenShow("Ocultar")
       : setHiddenShow("Mostrar")
   }
 
-  return (
-    <>
-        <main>
-        <div className="grid">
-            <Column />
-            <Row />
-            <section className="img-grid">
-            {images.map((img, i) => (
-                <Image name={img} key={i} position={i} toggleClick={toggleClick} />
-            ))}
-            </section>
-        </div>
+  //ExportImage
 
-        <div className={`grid smaller ${hidden}`}>
-            <Column />
-            <Row />
-            <section className="img-grid">
-            {template.map((img, i) => (
-                <Image name={img} key={i} />
-            ))}
-            </section>
-            <h1 className="box" style={{ backgroundColor: `${timeColor}` }}>
-            Time Inicial
-            </h1>
-        </div>
-        </main>
-        <HiddenShow hidden={hidden} hiddenShow={hiddenShow} buttonClick={buttonClick}/>
-    </>
+  let width = '46.7rem'
+  if (hidden) width = '30.3rem'
+
+  const ComponentToPrint = React.forwardRef((props, ref) => (
+    <div ref={ref} style={{ backgroundColor: 'whitesmoke', width: width, height: '24.5rem' }}>      
+      <main>
+        <Grid images={images} toggleClick={toggleClick} />
+        {
+          hidden ?
+            <></>
+            : <Grid smaller='smaller' hidden={hidden} images={template} timeColor={timeColor} />
+        }
+      </main>
+    </div>
+  ))
+
+  const componentRef = useRef()
+  return (
+    <React.Fragment>
+      <ComponentToPrint ref={componentRef} />
+      <button className="box button" onClick={() => exportComponentAsPNG(componentRef)}>
+        Screenshot
+      </button>
+      <HiddenShow hidden={hidden} hiddenShow={hiddenShow} buttonClick={buttonClick} />
+    </React.Fragment>
   )
 }
 

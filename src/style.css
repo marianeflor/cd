@@ -1,5 +1,18 @@
+html {
+    font-size: 30px;
+}
+
+body {
+    background-color: whitesmoke;    
+    font-family: 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
 main {
-    margin: 5px;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
     height: 730px;
@@ -83,13 +96,11 @@ main {
     box-shadow: 4px 4px #bebba8;
 }
 
-.screenshot {
-    position: relative;
-    top: -55px;
-    right: -560px;
-}
-
 @media screen and (max-width: 900px) {
+    
+    html {
+        font-size: 15px;
+    }
 
     main {
         height: 310px;
@@ -128,14 +139,10 @@ main {
     .button {
         width: 150px;
         height: 24px;
-    }
-
-    .screenshot {
         position: relative;
-        top: -29px;
-        right: -215px;
+        top: -55px
     }
-    
+       
         
 }
 
